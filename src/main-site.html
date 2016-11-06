@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Daily Task List</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<div class="task_list"></div>
-<script src=""></script>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1 class = day_of_the_week><span prettydate id="date"></span></h1>
+            </div>
+            <div class="col-sm-3 col-md-offset-3">
+                    <button class = "btn btn-success" onclick="changeText(1)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Bigger Text
+                    </button>
+                    <button class="btn btn-success" onclick="changeText(-1)">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                        Smaller Text
+                    </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class ="task_list">
+                    <h2>To Do's:</h2>
+                    <ol>
+                        <li>First Item</li>
+                        <button class = "btn btn-success">Done this task</button>
+                        <li>Second Item</li>
+                        <button class = "btn btn-success">Done this task</button>
+                        <li>Third Item</li>
+                        <button class = "btn btn-success" aria-label="done task">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            &nbsp; Done this task
+                        </button>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn speech-listener">Listen to me</button>
+            <p class = "output"> CHANGE ME</p>
+        </div>
+    </div>
 </body>
+
+
+
+
+
+
+<script src="list_population.js"></script>
+<script>
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var n = weekday[d.getDay()];
+    document.getElementById("date").innerHTML = "Today is "+ n +"!";
+
+
+    function changeText(multiplier) {
+        if (document.body.style.fontSize == "") {
+            document.body.style.fontSize = "2.0em";
+        }
+        document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier) + "em";
+    }
+</script>
+<script type="application/javascript" src="jquery-3.1.1.min.js"></script>
+<script src="listener.js"></script>
+
+
 </html>

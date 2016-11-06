@@ -1,0 +1,12 @@
+.task_list{
+    border: black solid 2px;
+    border-radius: 25px;
+    padding: 10%;
+    margin: 10px;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.day_of_the_week{
+
+}
